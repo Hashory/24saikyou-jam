@@ -13,11 +13,15 @@ public class Title : MonoBehaviour
     public GameObject Select2;
     public GameObject Select3;
 
+    public GameObject Rule;
+
     // シーンの名前を格納する配列
     public string[] sceneNames = new string[3];
 
     private float timer = 0f;
     private int currentIndex = 0;
+
+    private int? selectIndex = null;
 
     void Update()
     {
@@ -40,11 +44,18 @@ public class Title : MonoBehaviour
         // スペースキーが押されたら、対応するシーンをロード
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.sceneLoaded += GameSceneLoaded;
-            SceneManager.LoadScene("main");
+            if (!selectIndex.HasValue)
+            {
+                selectIndex = currentIndex;
+                Rule.SetActive(true);
+            } 
+            else
+            {
+                SceneManager.sceneLoaded += GameSceneLoaded;
+                SceneManager.LoadScene("main");
 
-            Debug.Log("Select: " + currentIndex);
-            // ここでシーンをロード currentIndexを参照して
+                Debug.Log("Select: " + selectIndex.Value);
+            }
         }
     }
     private void GameSceneLoaded(Scene next, LoadSceneMode mode)
@@ -53,7 +64,7 @@ public class Title : MonoBehaviour
         var gameManager = GameObject.FindWithTag("spawner").GetComponent<Spowner>();
 
         // データを渡す処理
-        gameManager.stage = currentIndex;
+        gameManager.stage = selectIndex.Value;
 
         // イベントから削除
         SceneManager.sceneLoaded -= GameSceneLoaded;
