@@ -15,7 +15,11 @@ public class GameOver : MonoBehaviour
     
     private void Start()
     {
-        if (Player1_Level == Player2_Level)
+        if(Player1_Level == 4 || Player2_Level == 4)
+        {
+            bonus = 7777;
+        }
+        else if (Player1_Level == Player2_Level)
         {
             switch (Player1_Level)
             {
@@ -46,7 +50,7 @@ public class GameOver : MonoBehaviour
         Debug.Log("Bonus:" + bonus);
         lastscore += bonus;
 
-        scoreText.text = "Score: " + lastscore.ToString();
+        scoreText.text = "Score:" + lastscore.ToString();
 
     }
     void Update()

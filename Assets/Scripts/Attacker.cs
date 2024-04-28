@@ -45,6 +45,7 @@ public class Attacker : MonoBehaviour
         {
             ToggleMode();
         }
+
     }
 
     private void InitializeKnife()
@@ -86,6 +87,11 @@ public class Attacker : MonoBehaviour
                 // それ以外の場合は、初期のvelocityを使用
                 rb.velocity = initialVelocity;
             }
+            if (PotionManager.player_Lv[PlayerNumber] == 4)
+            {
+                PotionManager.lastresort--;
+            }
+
         }
         
         mode = false;

@@ -38,16 +38,18 @@ public class knife : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
-    {   
+    {
+        audiosource.PlayOneShot(Weapon_SE);
         if (collision.gameObject.tag != "Attack")
         {
-            audiosource.PlayOneShot(Weapon_SE);
+            
             if (bounce > 0)
             {
                 bounce--;
             }
             else
             {
+                
                 Destroy(gameObject);
             }
         }

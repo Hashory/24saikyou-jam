@@ -20,6 +20,7 @@ public class Potion_manager : MonoBehaviour
     public AudioClip lifelost;
     public AudioClip die;
     AudioSource AudioSource;
+    public int lastresort = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,11 @@ public class Potion_manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(lastresort == 0)
+        {
+            SceneManager.sceneLoaded += GameSceneLoaded;
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     public void IncreaseScore()
@@ -96,8 +101,12 @@ public class Potion_manager : MonoBehaviour
     public void player_scoreIncrease(int pnum)
     {
         player_score[pnum]++;
-
-        if (player_score[pnum] >= 35)
+        if (player_score[pnum] >= 65)
+        {
+            player_Lv[pnum] = 4;
+            
+        }
+        else if (player_score[pnum]  >= 35)
         {
             player_Lv[pnum] = 3;
         }
@@ -112,6 +121,7 @@ public class Potion_manager : MonoBehaviour
         else
         {
             player_Lv[pnum] = 0;
+
         }
         Debug.Log("Player:" + pnum + " Score:"+ player_score[pnum] +" Lv:" + player_Lv[pnum]);
     }
