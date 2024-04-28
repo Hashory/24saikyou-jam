@@ -356,7 +356,7 @@ Transform:
   m_GameObject: {fileID: 576915958}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 50.3, z: -27.8}
+  m_LocalPosition: {x: 0, y: 64.4, z: -32.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -579,8 +579,8 @@ MonoBehaviour:
   Weapon_1: {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
   cycleTime: 6
   radius: 15
-  SpawnHeight: 10
-  initialVelocity: {x: 0, y: -20, z: 0}
+  SpawnHeight: 15
+  initialVelocity: {x: 0, y: -40, z: 0}
   KeyCode: 107
   PlayerNumber: 0
 --- !u!4 &1088686551
@@ -629,9 +629,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon_1: {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
   cycleTime: 4
-  radius: 20
-  SpawnHeight: 10
-  initialVelocity: {x: 0, y: -20, z: 0}
+  radius: 30
+  SpawnHeight: 15
+  initialVelocity: {x: 0, y: -40, z: 0}
   KeyCode: 100
   PlayerNumber: 1
 --- !u!4 &1230052884
