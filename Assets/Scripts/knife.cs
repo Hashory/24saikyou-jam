@@ -10,17 +10,26 @@ public class knife : MonoBehaviour
     public Potion_manager PotionManager;
     public int bounce;
 
-    private void Start()
+    private void Awake()
     {
         if (PotionManager == null)
         {
             PotionManager = FindObjectOfType<Potion_manager>();
-            bounce = 1;
         }
     }
+
     public void setnumber(int playerNumber)
     {
         PlayerNumber = playerNumber;
+            // レベルに基づいてバウンス数を設定
+            if (PotionManager.player_Lv[PlayerNumber] == 3)
+            {
+                bounce = 2;
+            }
+            else
+            {
+                bounce = 0;
+            }
 
     }
 
@@ -28,22 +37,16 @@ public class knife : MonoBehaviour
     {
         if (collision.gameObject.tag != "Attack")
         {
-            if (PotionManager.player_Lv[PlayerNumber] == 2)
+            Debug.Log("跳ね返り　残り:" + bounce);
+            if (bounce > 0)
             {
-                if (bounce != 0)
-                {
-                    bounce--;
-                }
-                else
-                {
-                    Destroy(gameObject);
-                }
+                bounce--;
             }
             else
             {
                 Destroy(gameObject);
             }
         }
+   
     }
-
 }
