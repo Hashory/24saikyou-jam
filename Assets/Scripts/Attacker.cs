@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
-    public GameObject Weapon_1;
+    public GameObject[] Weapon;
     public float cycleTime = 10.0f;
     public float radius = 15.0f;
     public float SpawnHeight = 10;
     public Vector3 initialVelocity;
     public KeyCode KeyCode = KeyCode.K;
     public int PlayerNumber;
+    public Potion_manager PotionManager;
 
     private float keyDownTime = 0f;
     private GameObject spawnKnife = null;
@@ -27,10 +28,11 @@ public class Attacker : MonoBehaviour
         if (Input.GetKeyDown(KeyCode) && !mode)
         {
             keyDownTime = Time.time;
-            spawnKnife = Instantiate(Weapon_1, new Vector3(radius, SpawnHeight, 0), Quaternion.Euler(-90, 0, 0));
+            // Weapon配列からプレハブを取得し、そのプレハブのrotationを使用してインスタンス化
+            GameObject weaponPrefab = Weapon[PotionManager.player_Lv[PlayerNumber]];
+            spawnKnife = Instantiate(weaponPrefab, new Vector3(radius, SpawnHeight, 0), weaponPrefab.transform.rotation);
             InitializeKnife();
         }
-
         if (Input.GetKey(KeyCode) && !mode)
         {
             UpdateKnifePos();
