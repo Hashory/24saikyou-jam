@@ -57,13 +57,15 @@ public class Potion_manager : MonoBehaviour
         PlayerHP--;
         if (PlayerHP > 0)
         {
-            AudioSource.PlayOneShot(lifelost);
+            // AudioSource.PlayOneShot(lifelost);
+            AudioManager.Instance.PlaySound(lifelost);
         }
         Mathf.Max(PlayerHP, 0);
         UpdateHPUI();
         if (PlayerHP <= 0)
         {
             AudioSource.PlayOneShot(die);
+            AudioManager.Instance.PlaySound(die);
             SceneManager.sceneLoaded += GameSceneLoaded;
             SceneManager.LoadScene("GameOver");
         }

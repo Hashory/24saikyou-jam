@@ -39,7 +39,9 @@ public class knife : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        audiosource.PlayOneShot(Weapon_SE);
+        // audiosource.PlayOneShot(Weapon_SE);
+        AudioManager.Instance.PlaySound(Weapon_SE);
+
         if (collision.gameObject.tag != "Attack")
         {
             
