@@ -11,7 +11,7 @@ public class GameOver : MonoBehaviour
         {
             Debug.Log("To TItle");
             // タイトルシーンに変更する
-            // SceneManager.LoadScene("TitleScene"); 
+             SceneManager.LoadScene("Title"); 
         }
     }
 }
