@@ -1,12 +1,15 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SocialPlatforms.Impl;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class Potion_manager : MonoBehaviour
 {
     public int Score = 0;
+    public int[] player_score = new int [4];
+    public int[] player_Lv = new int[4];
     public int PlayerHP = 5;
     public int Level = 1;
     public Text hpText;
@@ -28,24 +31,6 @@ public class Potion_manager : MonoBehaviour
     {
         Score++;
         UpdateScoreUI();
-        Debug.Log("Score:"+Score);
-        if(Score == 5)
-        {
-            Level = 2;
-        }
-        if (Score == 15)
-        {
-            Level = 3;
-        }
-        if (Score == 35)
-        {
-            Level = 4;
-        }
-        if (Score == 65)
-        {
-            Level = 5;
-        }
-
         if(Score%20 == 0 && Score != 0)
         {
             PlayerHP++;
@@ -61,16 +46,44 @@ public class Potion_manager : MonoBehaviour
         if (PlayerHP <= 0)
         {
             //Time.timeScale = 0;
-            Debug.Log("‚ª‚ß‚¨‚×‚ç");
+            Debug.Log("ãŒã‚ãŠã¹ã‚‰");
         }
     }
     void UpdateHPUI()
     {
-        hpText.text = "HP: " + PlayerHP.ToString();  // HP ‚Ì•\Ž¦‚ðXV
+        hpText.text = "HP: " + PlayerHP.ToString();  // HP ã®è¡¨ç¤ºã‚’æ›´æ–°
     }
 
     void UpdateScoreUI()
     {
-        scoreText.text = "Score: " + Score.ToString();  // ƒXƒRƒA‚Ì•\Ž¦‚ðXV
+        scoreText.text = "Score: " + Score.ToString();  // ã‚¹ã‚³ã‚¢ã®è¡¨ç¤ºã‚’æ›´æ–°
     }
+
+    public void player_scoreIncrease(int pnum)
+    {
+        player_score[pnum]++;
+
+        if (player_score[pnum] == 5)
+        {
+            player_Lv[pnum] = 2;
+        }
+        else if (player_score[pnum] == 15)
+        {
+            player_Lv[pnum] = 3;
+        }
+        else if (player_score[pnum] == 35)
+        {
+            player_Lv[pnum] = 4;
+        }
+        else if (player_score[pnum] == 65)
+        {
+            player_Lv[pnum] = 5;
+        }
+        else
+        {
+            player_Lv[pnum] = 1;
+        }
+        Debug.Log("Player:" + pnum + " Lv:" + player_Lv[pnum]);
+    }
+
 }

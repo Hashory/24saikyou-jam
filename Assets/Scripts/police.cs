@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -50,14 +51,17 @@ public class Police : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Attack"))
         {
+            knife knife = other.gameObject.GetComponent<knife>();
+            
             Debug.Log("ダメージ");
             HP -= 1;
             if (HP <= 0)
             {
                 Debug.Log("破壊");
                 if (scoreManager != null)
-                {
+                {   
                     scoreManager.IncreaseScore();  // スコアを増やす
+                    scoreManager.player_scoreIncrease(knife.PlayerNumber);
                 }
                 Destroy(gameObject);
             }
@@ -72,4 +76,5 @@ public class Police : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
