@@ -1926,7 +1926,6 @@ MonoBehaviour:
   player_Lv: 00000000000000000000000000000000
   PlayerMaxHP: 5
   PlayerHP: 5
-  Level: 1
   scoreText: {fileID: 142948704}
   heartImage:
   - {fileID: 583286051}

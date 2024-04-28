@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4052388849687610305}
   - component: {fileID: 4184151321077729884}
   - component: {fileID: 7269753713264714090}
-  - component: {fileID: -4354961269046833192}
+  - component: {fileID: 1329647225210225768}
   m_Layer: 0
   m_Name: axe
   m_TagString: Attack
@@ -252,7 +252,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-4354961269046833192
+--- !u!114 &1329647225210225768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,7 +261,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7173563740290161648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa08a1daebcdc0d4e9df721059377982, type: 3}
+  m_Script: {fileID: 11500000, guid: 84e3cbc354dd0d145aecde501f5b6191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PotionManager: {fileID: 0}
   bounce: 1

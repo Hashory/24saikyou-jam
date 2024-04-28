@@ -12,7 +12,6 @@ public class Potion_manager : MonoBehaviour
     public int[] player_Lv = new int[4];
     public int PlayerMaxHP = 5;
     public int PlayerHP;
-    public int Level = 0;
     public Text scoreText;
     public Image[] heartImage;
     public Sprite fullHeart; 
