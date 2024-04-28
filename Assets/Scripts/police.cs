@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Police : MonoBehaviour
 {
     public Transform potion; // potionオブジェクトへの参照
-    public float speed = 1.0f; // 移動速度
+    public static float speed = 1.0f; // 移動速度
     public int HP = 1; // HP
     private float startY; // 初期のY座標
     public Potion_manager scoreManager; // PotionManagerへの参照
