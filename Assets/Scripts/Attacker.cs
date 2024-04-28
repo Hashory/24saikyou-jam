@@ -5,61 +5,80 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
-    public GameObject Knife;
+    public GameObject Weapon_1;
     public float cycleTime = 10.0f;
     public float radius = 15.0f;
     public float SpawnHeight = 10;
     public KeyCode KeyCode = KeyCode.K;
+    public int PlayerNumber;
 
     private float keyDownTime = 0f;
     private GameObject spawnKnife = null;
     private bool mode = false;
 
-    // Update is called once per frame
     void Update()
     {
-        // K down
+        HandleKeyPress();
+    }
+
+    private void HandleKeyPress()
+    {
         if (Input.GetKeyDown(KeyCode) && !mode)
         {
             keyDownTime = Time.time;
-            if (spawnKnife == null)
-            {
-                spawnKnife = Instantiate(Knife, new Vector3(radius, SpawnHeight, 0), Quaternion.identity);
-            }
+            spawnKnife = Instantiate(Weapon_1, new Vector3(radius, SpawnHeight, 0), Quaternion.identity);
+            InitializeKnife();
         }
 
-        // K duration
         if (Input.GetKey(KeyCode) && !mode)
         {
-            UpdateKnifePos(); // Kキーを押している間、位置を更新
+            UpdateKnifePos();
         }
 
         if (Input.GetKeyUp(KeyCode))
         {
-            if (!mode)
-            {
-                // 最初のキーアップで回転を停止する
-                mode = true;  // modeをtrueに設定して、次のKキー押下で重力を適用する準備
-            }
-            else if (spawnKnife != null)
-            {
-                // 二回目のキーアップで重力を適用
-                Rigidbody rb = spawnKnife.GetComponent<Rigidbody>();
-                rb.useGravity = true;
-                mode = false;  // modeをリセット
-                spawnKnife = null;  // spawnKnifeをリセットする
-            }
+            ToggleMode();
         }
-
     }
 
-    void UpdateKnifePos()
+    private void InitializeKnife()
+    {
+        knife knifeScript = spawnKnife.GetComponent<knife>();
+        if (knifeScript != null)
+        {
+            knifeScript.setnumber(PlayerNumber);
+        }
+    }
+
+    private void ToggleMode()
+    {
+        if (!mode)
+        {
+            mode = true;
+        }
+        else if (spawnKnife != null)
+        {
+            ApplyGravity();
+        }
+    }
+
+    private void ApplyGravity()
+    {
+        Rigidbody rb = spawnKnife.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.useGravity = true;
+        }
+        mode = false;
+        spawnKnife = null;
+    }
+
+    private void UpdateKnifePos()
     {
         float duration = Time.time - keyDownTime;
-        float angle = 2 * Mathf.PI * (duration / cycleTime);
+        float angle = Mathf.PI * 2 * (duration / cycleTime);
         float x = radius * Mathf.Cos(angle);
         float y = radius * Mathf.Sin(angle);
-
         spawnKnife.transform.position = new Vector3(x, SpawnHeight, y);
     }
 }
