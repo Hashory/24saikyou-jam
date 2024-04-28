@@ -1215,6 +1215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 3873112176503229782, guid: 52606967e5718554a8fa5a27b0a88c72, type: 3}
+  lightManager: {fileID: 299579762}
   minRadius: 90
   maxRadius: 120
   minAngle: 0

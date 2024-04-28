@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spowner : MonoBehaviour
 {
     public GameObject spawnObject; // スポーンするオブジェクト
+    public LightManager lightManager;
     public float minRadius; // 最小半径
     public float maxRadius; // 最大半径
     public float minAngle; // 最小角度（度数）
@@ -17,8 +18,13 @@ public class Spowner : MonoBehaviour
 
     private void Start()
     {
+        if (lightManager != null)
+        {
+            lightManager.UpdateLighting(stage);
+        }
         currentspawninterval = initialspawninterval;
         SpawnRandom();
+
     }
 
     void Update()
