@@ -27,7 +27,7 @@ public class Attacker : MonoBehaviour
         if (Input.GetKeyDown(KeyCode) && !mode)
         {
             keyDownTime = Time.time;
-            spawnKnife = Instantiate(Weapon_1, new Vector3(radius, SpawnHeight, 0), Quaternion.identity);
+            spawnKnife = Instantiate(Weapon_1, new Vector3(radius, SpawnHeight, 0), Quaternion.Euler(-90, 0, 0));
             InitializeKnife();
         }
 
