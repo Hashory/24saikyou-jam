@@ -57,7 +57,6 @@ public class Potion_manager : MonoBehaviour
         PlayerHP--;
         if (PlayerHP > 0)
         {
-            // AudioSource.PlayOneShot(lifelost);
             AudioManager.Instance.PlaySound(lifelost);
         }
         Mathf.Max(PlayerHP, 0);
