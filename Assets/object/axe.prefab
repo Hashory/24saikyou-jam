@@ -265,4 +265,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PotionManager: {fileID: 0}
-  bounce: 1
+  bounce: 0
