@@ -52,11 +52,11 @@ public class Spowner : MonoBehaviour
     {
         float gameTime = Time.timeSinceLevelLoad; // ゲーム開始からの経過時間
         if (gameTime > 80.0f)
-            currentspawninterval = 0.5f;
-        else if (gameTime > 40.0f)
             currentspawninterval = 1.0f;
-        else if (gameTime > 10.0f)
+        else if (gameTime > 40.0f)
             currentspawninterval = 2.0f;
+        else if (gameTime > 10.0f)
+            currentspawninterval = 3.0f;
         else
             currentspawninterval = initialspawninterval;
     }

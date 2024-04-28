@@ -63,19 +63,19 @@ public class Potion_manager : MonoBehaviour
     {
         player_score[pnum]++;
 
-        if (player_score[pnum] == 5)
+        if (player_score[pnum] >= 5)
         {
             player_Lv[pnum] = 2;
         }
-        else if (player_score[pnum] == 15)
+        else if (player_score[pnum] >= 15)
         {
             player_Lv[pnum] = 3;
         }
-        else if (player_score[pnum] == 35)
+        else if (player_score[pnum] >= 35)
         {
             player_Lv[pnum] = 4;
         }
-        else if (player_score[pnum] == 65)
+        else if (player_score[pnum] >= 65)
         {
             player_Lv[pnum] = 5;
         }
