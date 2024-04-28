@@ -8,6 +8,7 @@ public class Potion_manager : MonoBehaviour
 {
     public int Score = 0;
     public int PlayerHP = 5;
+    public int Level = 1;
     public Text hpText;
     public Text scoreText;
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class Potion_manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        
     }
 
     public void IncreaseScore()
@@ -28,6 +29,22 @@ public class Potion_manager : MonoBehaviour
         Score++;
         UpdateScoreUI();
         Debug.Log("Score:"+Score);
+        if(Score == 5)
+        {
+            Level = 2;
+        }
+        if (Score == 15)
+        {
+            Level = 3;
+        }
+        if (Score == 35)
+        {
+            Level = 4;
+        }
+        if (Score == 65)
+        {
+            Level = 5;
+        }
     }
 
     public void DecreaseHP()
@@ -37,7 +54,7 @@ public class Potion_manager : MonoBehaviour
         Debug.Log("HP:" + PlayerHP);
         if (PlayerHP <= 0)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             Debug.Log("‚ª‚ß‚¨‚×‚ç");
         }
     }
