@@ -627,11 +627,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weapon_1: {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
-  cycleTime: 3
+  cycleTime: 4
   radius: 30
   SpawnHeight: 10
   KeyCode: 100
-  PlayerNumber: 0
+  PlayerNumber: 1
 --- !u!4 &1230052884
 Transform:
   m_ObjectHideFlags: 0
@@ -798,6 +798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: 0
+  player_score: 00000000000000000000000000000000
+  player_Lv: 00000000000000000000000000000000
   PlayerHP: 5
   Level: 1
   hpText: {fileID: 714757617}

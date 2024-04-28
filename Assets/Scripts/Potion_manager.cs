@@ -83,7 +83,7 @@ public class Potion_manager : MonoBehaviour
         {
             player_Lv[pnum] = 1;
         }
-        Debug.Log("Player:" + pnum + " Lv:" + player_Lv[pnum]);
+        Debug.Log("Player:" + pnum + " Score:"+ player_score[pnum] +" Lv:" + player_Lv[pnum]);
     }
 
 }
