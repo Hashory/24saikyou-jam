@@ -419,9 +419,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Knife: {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
-  cycleTime: 10
+  cycleTime: 1
   radius: 15
+<<<<<<< HEAD
   SpownHeight: 10
+=======
+  SpawnHeight: 5
+>>>>>>> 0a671bee96f1999c5dc872718e6e13af2c87512f
 --- !u!4 &1088686551
 Transform:
   m_ObjectHideFlags: 0
