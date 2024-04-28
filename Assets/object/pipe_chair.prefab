@@ -180,6 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e3cbc354dd0d145aecde501f5b6191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PotionManager: {fileID: 0}
+  bounce: 0
+  Weapon_SE: {fileID: 8300000, guid: a25d9124c9c9dda43bdaf5b3489b5b80, type: 3}
 --- !u!1 &7199834157096033018
 GameObject:
   m_ObjectHideFlags: 0

@@ -266,3 +266,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PotionManager: {fileID: 0}
   bounce: 0
+  Weapon_SE: {fileID: 8300000, guid: 9071d5ad2fec68b4a80e3fd42d56eefa, type: 3}

@@ -9,6 +9,9 @@ public class knife : MonoBehaviour
     public int PlayerNumber { get; private set; }
     public Potion_manager PotionManager;
     public int bounce;
+    public AudioClip Weapon_SE;
+    AudioSource audiosource;
+
 
     private void Awake()
     {
@@ -16,6 +19,7 @@ public class knife : MonoBehaviour
         {
             PotionManager = FindObjectOfType<Potion_manager>();
         }
+        audiosource = GetComponent<AudioSource>();
     }
 
     public void setnumber(int playerNumber)
@@ -34,10 +38,10 @@ public class knife : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
-    {
+    {   
         if (collision.gameObject.tag != "Attack")
         {
-            Debug.Log("跳ね返り　残り:" + bounce);
+            audiosource.PlayOneShot(Weapon_SE);
             if (bounce > 0)
             {
                 bounce--;

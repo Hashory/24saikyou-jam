@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class Attacker : MonoBehaviour
@@ -14,10 +15,12 @@ public class Attacker : MonoBehaviour
     public int PlayerNumber;
     public Potion_manager PotionManager;
 
+    
     private float keyDownTime = 0f;
     private GameObject spawnKnife = null;
     private bool mode = false;
 
+   
     void Update()
     {
         HandleKeyPress();
@@ -84,6 +87,7 @@ public class Attacker : MonoBehaviour
                 rb.velocity = initialVelocity;
             }
         }
+        
         mode = false;
         spawnKnife = null;
     }
