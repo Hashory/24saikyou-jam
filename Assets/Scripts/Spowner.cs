@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spowner : MonoBehaviour
 {
-    public GameObject spawnObject; // スポーンするオブジェクト
+    public GameObject[] spawnObject; // スポーンするオブジェクト
     public LightManager lightManager;
     public float minRadius; // 最小半径
     public float maxRadius; // 最大半径
@@ -54,7 +54,7 @@ public class Spowner : MonoBehaviour
         float y = radius * Mathf.Sin(angle * Mathf.Deg2Rad);
 
         // オブジェクトの生成
-        Instantiate(spawnObject, new Vector3(x, 0, y), Quaternion.identity);
+        Instantiate(spawnObject[police_var()], new Vector3(x, 0, y), Quaternion.identity);
     }
     void AdjustSpawnInterval(int stage)
     {
@@ -123,6 +123,42 @@ public class Spowner : MonoBehaviour
                 Police.speed = 10.0f;
                 break;
         }
+    }
+
+    int police_var()
+    {
+        float gameTime = Time.timeSinceLevelLoad;
+        int persent = Random.Range(0, 10);
+        if (gameTime > 80.0f)
+        {
+            switch (persent)
+            {
+                case 5:
+                case 6:
+                case 7:
+                    return 1;
+
+                case 8:
+                case 9:
+                    return 2;
+
+                default:
+                    return 0;
+            }
+        }
+        else if (gameTime > 40.0f)
+        {
+            switch (persent)
+            {
+                case 8:
+                case 9:
+                    return 1;
+
+                default:
+                    return 0;
+            }
+        }
+        else return 0;
     }
 
 }

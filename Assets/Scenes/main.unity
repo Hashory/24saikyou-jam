@@ -992,9 +992,10 @@ MonoBehaviour:
   - {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
   - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
   - {fileID: 7173563740290161648, guid: 6b9f1f0918804ae41b37d9de3fceed2f, type: 3}
+  - {fileID: 3184447855443453274, guid: 16e142eef490a2c4abd66606e878ab98, type: 3}
   cycleTime: 4
   radius: 30
-  SpawnHeight: 30
+  SpawnHeight: 40
   initialVelocity: {x: 0, y: -60, z: 0}
   KeyCode: 107
   PlayerNumber: 0
@@ -1161,9 +1162,10 @@ MonoBehaviour:
   - {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
   - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
   - {fileID: 7173563740290161648, guid: 6b9f1f0918804ae41b37d9de3fceed2f, type: 3}
+  - {fileID: 3184447855443453274, guid: 16e142eef490a2c4abd66606e878ab98, type: 3}
   cycleTime: 4
   radius: 60
-  SpawnHeight: 30
+  SpawnHeight: 40
   initialVelocity: {x: 0, y: -60, z: 0}
   KeyCode: 100
   PlayerNumber: 1
@@ -1212,7 +1214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69f9990ab4d6f74db59d93f52b7cb27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnObject: {fileID: 3873112176503229782, guid: 52606967e5718554a8fa5a27b0a88c72, type: 3}
+  spawnObject:
+  - {fileID: 3873112176503229782, guid: 52606967e5718554a8fa5a27b0a88c72, type: 3}
+  - {fileID: 3873112176503229782, guid: 999e54563bcaf8744a0cff2a76acf34f, type: 3}
+  - {fileID: 3873112176503229782, guid: d5e56001251a2e54e8bc3ca1ea440b0b, type: 3}
   lightManager: {fileID: 299579762}
   minRadius: 90
   maxRadius: 120
@@ -1629,6 +1634,7 @@ GameObject:
   - component: {fileID: 543450651673136953}
   - component: {fileID: 3469287837669621916}
   - component: {fileID: 1711813854950945878}
+  - component: {fileID: 3469287837669621917}
   m_Layer: 5
   m_Name: circle2
   m_TagString: Untagged
@@ -1715,6 +1721,7 @@ GameObject:
   - component: {fileID: 3136769833986277744}
   - component: {fileID: 2028818985342389973}
   - component: {fileID: 4306328927019088415}
+  - component: {fileID: 4306328927019088416}
   m_Layer: 5
   m_Name: circle
   m_TagString: Untagged
@@ -1745,6 +1752,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148003165571}
   m_Mesh: {fileID: -593053110101353100, guid: ccdef2a3a95a52b4bbe12926f2606037, type: 3}
+--- !u!114 &3469287837669621917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148003165571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318c3de424c10954a856c8cfdae9e621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionManager: {fileID: 7979882442628388659}
+  attacker: {fileID: 1230052883}
+  goldColor: {r: 1, g: 0.843, b: 0, a: 1}
 --- !u!4 &3604054232390740466
 Transform:
   m_ObjectHideFlags: 0
@@ -1802,6 +1824,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4306328927019088416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2360971594154220490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318c3de424c10954a856c8cfdae9e621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionManager: {fileID: 7979882442628388659}
+  attacker: {fileID: 1088686550}
+  goldColor: {r: 1, g: 0.843, b: 0, a: 1}
 --- !u!4 &5499824544688249699
 Transform:
   m_ObjectHideFlags: 0
@@ -2002,9 +2039,9 @@ Transform:
   m_GameObject: {fileID: 7347038272717950344}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.4929256, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3604054232390740466}
   - {fileID: 5499824544688249699}
@@ -2039,6 +2076,7 @@ MonoBehaviour:
   emptyHeart: {fileID: 21300000, guid: 621a23c0c2680a2479a1353d9f86659a, type: 3}
   lifelost: {fileID: 8300000, guid: fdd7716aa96b30249b178a704ca0f71b, type: 3}
   die: {fileID: 8300000, guid: 230d0a9465893e5429cb311d127cf2e5, type: 3}
+  lastresort: 3
 --- !u!135 &7979882442628388660
 SphereCollider:
   m_ObjectHideFlags: 0
