@@ -1,0 +1,70 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Threading;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Title : MonoBehaviour
+{
+    public float selectDuration = 1.0f;
+
+    public GameObject Select1;
+    public GameObject Select2;
+    public GameObject Select3;
+
+    // シーンの名前を格納する配列
+    public string[] sceneNames = new string[3];
+
+    private float timer = 0f;
+    private int currentIndex = 0;
+
+    void Update()
+    {
+        // タイマーを更新
+        timer += Time.deltaTime;
+
+        // selectDuration 秒ごとにオブジェクトを切り替える
+        if (timer >= selectDuration)
+        {
+            // タイマーをリセット
+            timer = 0f;
+
+            // 現在のインデックスに基づいて、次のオブジェクトをアクティブにする
+            ActivateCurrentIndex();
+
+            // インデックスを更新
+            currentIndex = (currentIndex + 1) % 3;
+        }
+
+        // スペースキーが押されたら、対応するシーンをロード
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Select: " + currentIndex);
+            // ここでシーンをロード currentIndexを参照して
+        }
+    }
+
+    void ActivateCurrentIndex()
+    {
+        // すべてのオブジェクトを一旦非アクティブにする
+        Select1.SetActive(false);
+        Select2.SetActive(false);
+        Select3.SetActive(false);
+
+        // 現在のインデックスに基づいて、対応するオブジェクトをアクティブにする
+        switch (currentIndex)
+        {
+            case 0:
+                Select1.SetActive(true);
+                break;
+            case 1:
+                Select2.SetActive(true);
+                break;
+            case 2:
+                Select3.SetActive(true);
+                break;
+        }
+    }
+}
+
