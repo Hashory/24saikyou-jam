@@ -10,17 +10,22 @@ public class Spowner : MonoBehaviour
     public float minAngle; // 最小角度（度数）
     public float maxAngle; // 最大角度（度数）
 
-    public float spawnInterval = 2.0f; // スポーン間隔（秒）
-
+    public float initialspawninterval = 4.0f; // スポーン間隔（秒）
+    public float currentspawninterval;
     private float timeSinceLastSpawn; // 最後のスポーンからの経過時間
+
+    private void Start()
+    {
+        currentspawninterval = initialspawninterval;
+    }
 
     void Update()
     {
-        // 経過時間を更新
         timeSinceLastSpawn += Time.deltaTime;
+        AdjustSpawnInterval();
 
         // 経過時間がスポーン間隔を超えたか確認
-        if (timeSinceLastSpawn >= spawnInterval)
+        if (timeSinceLastSpawn >= currentspawninterval)
         {
             // スポーン関数を呼び出し
             SpawnRandom();
@@ -43,5 +48,18 @@ public class Spowner : MonoBehaviour
         // オブジェクトの生成
         Instantiate(spawnObject, new Vector3(x, 0, y), Quaternion.identity);
     }
+    void AdjustSpawnInterval()
+    {
+        float gameTime = Time.timeSinceLevelLoad; // ゲーム開始からの経過時間
+        if (gameTime > 80.0f)
+            currentspawninterval = 0.5f;
+        else if (gameTime > 40.0f)
+            currentspawninterval = 1.0f;
+        else if (gameTime > 10.0f)
+            currentspawninterval = 2.0f;
+        else
+            currentspawninterval = initialspawninterval;
+    }
 
 }
+
