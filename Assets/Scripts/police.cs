@@ -1,35 +1,35 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Police : MonoBehaviour
 {
-    public Transform potion; // potionƒIƒuƒWƒFƒNƒg‚Ö‚ÌQÆ
-    public float speed = 1.0f; // ˆÚ“®‘¬“x
+    public Transform potion; // potionã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®å‚ç…§
+    public float speed = 1.0f; // ç§»å‹•é€Ÿåº¦
     public int HP = 1; // HP
-    private float startY; // ‰Šú‚ÌYÀ•W
-    public Potion_manager scoreManager; // PotionManager‚Ö‚ÌQÆ
+    private float startY; // åˆæœŸã®Yåº§æ¨™
+    public Potion_manager scoreManager; // PotionManagerã¸ã®å‚ç…§
 
     void Start()
     {
-        // potionƒ^ƒO‚ğ‚ÂƒIƒuƒWƒFƒNƒg‚ğŒ©‚Â‚¯‚é
+        // potionã‚¿ã‚°ã‚’æŒã¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¦‹ã¤ã‘ã‚‹
         if (potion == null)
         {
             potion = GameObject.FindGameObjectWithTag("potion").transform;
         }
-        startY = transform.position.y; // ‰Šú‚ÌYÀ•W‚ğ•Û‘¶
+        startY = transform.position.y; // åˆæœŸã®Yåº§æ¨™ã‚’ä¿å­˜
 
-        // potionƒIƒuƒWƒFƒNƒg‚Ì•ûŒü‚ğŒü‚­
+        // potionã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–¹å‘ã‚’å‘ã
         Vector3 direction = potion.position - transform.position;
-        direction.y = 0; // Y²‚Ì•Ï“®‚ğ0‚É‚·‚éi…•½–Êã‚Ì‚İ‚ğl—¶j
+        direction.y = 0; // Yè»¸ã®å¤‰å‹•ã‚’0ã«ã™ã‚‹ï¼ˆæ°´å¹³é¢ä¸Šã®ã¿ã‚’è€ƒæ…®ï¼‰
         Quaternion newRotation = Quaternion.LookRotation(direction);
         transform.rotation = newRotation;
 
-        // ‰ŠúˆÊ’u‚ÌYÀ•W‚ğŒÅ’è‚·‚é
+        // åˆæœŸä½ç½®ã®Yåº§æ¨™ã‚’å›ºå®šã™ã‚‹
         transform.position = new Vector3(transform.position.x, startY, transform.position.z);
 
-        // potionƒIƒuƒWƒFƒNƒg‚©‚çPotionManagerƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾
+        // potionã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰PotionManagerã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’å–å¾—
         if (scoreManager == null)
         {
             scoreManager = FindObjectOfType<Potion_manager>();
@@ -38,36 +38,36 @@ public class Police : MonoBehaviour
 
     void Update()
     {
-        // potion‚Ì•ûŒü‚ÉˆÚ“®‚³‚¹‚é
+        // potionã®æ–¹å‘ã«ç§»å‹•ã•ã›ã‚‹
         Vector3 moveDirection = potion.position - transform.position;
-        moveDirection.y = 0; // Y²‚Ì•Ï“®‚ğ0‚É‚·‚é
-        moveDirection.Normalize(); // ƒxƒNƒgƒ‹‚Ì³‹K‰»
+        moveDirection.y = 0; // Yè»¸ã®å¤‰å‹•ã‚’0ã«ã™ã‚‹
+        moveDirection.Normalize(); // ãƒ™ã‚¯ãƒˆãƒ«ã®æ­£è¦åŒ–
         transform.position += moveDirection * speed * Time.deltaTime;
-        transform.position = new Vector3(transform.position.x, startY, transform.position.z); // YÀ•W‚ğŒÅ’è
+        transform.position = new Vector3(transform.position.x, startY, transform.position.z); // Yåº§æ¨™ã‚’å›ºå®š
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Attack"))
         {
-            Debug.Log("ƒ_ƒ[ƒW");
+            Debug.Log("ãƒ€ãƒ¡ãƒ¼ã‚¸");
             HP -= 1;
             if (HP <= 0)
             {
-                Debug.Log("”j‰ó");
+                Debug.Log("ç ´å£Š");
                 if (scoreManager != null)
                 {
-                    scoreManager.IncreaseScore();  // ƒXƒRƒA‚ğ‘‚â‚·
+                    scoreManager.IncreaseScore();  // ã‚¹ã‚³ã‚¢ã‚’å¢—ã‚„ã™
                 }
                 Destroy(gameObject);
             }
         }
         else if (other.gameObject.CompareTag("potion"))
         {
-            Debug.Log("“’B");
+            Debug.Log("åˆ°é”");
             if (scoreManager != null)
             {
-                scoreManager.DecreaseHP();  // ‘Ì—Í‚ğŒ¸‚ç‚·
+                scoreManager.DecreaseHP();  // ä½“åŠ›ã‚’æ¸›ã‚‰ã™
             }
             Destroy(gameObject);
         }
