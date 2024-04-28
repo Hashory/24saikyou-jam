@@ -628,7 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon_1: {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
   cycleTime: 4
-  radius: 30
+  radius: 20
   SpawnHeight: 10
   KeyCode: 100
   PlayerNumber: 1
