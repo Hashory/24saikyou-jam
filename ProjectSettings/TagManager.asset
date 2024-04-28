@@ -6,6 +6,7 @@ TagManager:
   tags:
   - potion
   - Attack
+  - spawner
   layers:
   - Default
   - TransparentFX

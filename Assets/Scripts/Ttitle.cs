@@ -40,9 +40,23 @@ public class Title : MonoBehaviour
         // スペースキーが押されたら、対応するシーンをロード
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            SceneManager.sceneLoaded += GameSceneLoaded;
+            SceneManager.LoadScene("main");
+
             Debug.Log("Select: " + currentIndex);
             // ここでシーンをロード currentIndexを参照して
         }
+    }
+    private void GameSceneLoaded(Scene next, LoadSceneMode mode)
+    {
+        // シーン切り替え後のスクリプトを取得
+        var gameManager = GameObject.FindWithTag("spawner").GetComponent<Spowner>();
+
+        // データを渡す処理
+        gameManager.stage = currentIndex;
+
+        // イベントから削除
+        SceneManager.sceneLoaded -= GameSceneLoaded;
     }
 
     void ActivateCurrentIndex()
