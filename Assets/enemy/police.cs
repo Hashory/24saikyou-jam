@@ -10,6 +10,10 @@ public class police : MonoBehaviour
 
     void Start()
     {
+        if (potion == null)
+        {
+            potion = GameObject.FindGameObjectWithTag("potion").transform; // プレイヤータグを使用してプレイヤーを見つける
+        }
         startY = transform.position.y; // 初期のY座標を保存
     }
 
