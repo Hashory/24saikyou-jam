@@ -39,20 +39,19 @@ public class police : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"当たった: {other.gameObject.name}");
         if (other.gameObject.CompareTag("Attack"))
         {
-            Debug.Log("攻撃を受けた");
+            Debug.Log("ダメージ");
             HP -= 1;
             if (HP <= 0)
             {
-                Debug.Log("オブジェクトが破壊されます");
+                Debug.Log("破壊");
                 Destroy(gameObject);
             }
         }
         else if (other.gameObject.CompareTag("potion"))
         {
-            Debug.Log("ポーションと衝突し、オブジェクトが破壊されます");
+            Debug.Log("到達");
             Destroy(gameObject);
         }
     }
