@@ -9,6 +9,7 @@ public class Attacker : MonoBehaviour
     public float cycleTime = 10.0f;
     public float radius = 15.0f;
     public float SpawnHeight = 10;
+    public Vector3 initialVelocity;
     public KeyCode KeyCode = KeyCode.K;
     public int PlayerNumber;
 
@@ -48,6 +49,7 @@ public class Attacker : MonoBehaviour
         {
             knifeScript.setnumber(PlayerNumber);
         }
+
     }
 
     private void ToggleMode()
@@ -68,7 +70,9 @@ public class Attacker : MonoBehaviour
         if (rb != null)
         {
             rb.useGravity = true;
+            rb.velocity = initialVelocity;
         }
+
         mode = false;
         spawnKnife = null;
     }

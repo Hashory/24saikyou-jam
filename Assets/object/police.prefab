@@ -207,9 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potion: {fileID: 0}
-  speed: 3
+  speed: 2
   HP: 1
-  rotationSpeed: 5
+  scoreManager: {fileID: 0}
 --- !u!54 &6186305997919841113
 Rigidbody:
   m_ObjectHideFlags: 0
