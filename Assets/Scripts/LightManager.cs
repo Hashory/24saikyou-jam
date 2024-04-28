@@ -14,10 +14,10 @@ public class LightManager : MonoBehaviour
         switch (timeOfDay)
         {
             case 0: // 朝
-                SetLighting(morningColor, 0.5f);
+                SetLighting(morningColor, 1f);
                 break;
             case 1: // 昼
-                SetLighting(noonColor, 1f);
+                SetLighting(noonColor, 0.75f);
                 break;
             case 2: // 夜
                 SetLighting(nightColor, 0.2f);
