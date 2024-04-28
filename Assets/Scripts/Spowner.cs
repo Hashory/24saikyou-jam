@@ -9,6 +9,7 @@ public class Spowner : MonoBehaviour
     public float maxRadius; // 最大半径
     public float minAngle; // 最小角度（度数）
     public float maxAngle; // 最大角度（度数）
+    public int stage;
 
     public float initialspawninterval = 4.0f; // スポーン間隔（秒）
     public float currentspawninterval;
@@ -17,12 +18,13 @@ public class Spowner : MonoBehaviour
     private void Start()
     {
         currentspawninterval = initialspawninterval;
+        SpawnRandom();
     }
 
     void Update()
     {
         timeSinceLastSpawn += Time.deltaTime;
-        AdjustSpawnInterval();
+        AdjustSpawnInterval(stage);
 
         // 経過時間がスポーン間隔を超えたか確認
         if (timeSinceLastSpawn >= currentspawninterval)
@@ -48,17 +50,54 @@ public class Spowner : MonoBehaviour
         // オブジェクトの生成
         Instantiate(spawnObject, new Vector3(x, 0, y), Quaternion.identity);
     }
-    void AdjustSpawnInterval()
+    void AdjustSpawnInterval(int stage)
     {
         float gameTime = Time.timeSinceLevelLoad; // ゲーム開始からの経過時間
-        if (gameTime > 80.0f)
-            currentspawninterval = 1.0f;
-        else if (gameTime > 40.0f)
-            currentspawninterval = 2.0f;
-        else if (gameTime > 10.0f)
-            currentspawninterval = 3.0f;
-        else
-            currentspawninterval = initialspawninterval;
+        switch(stage)
+        {
+            case 0:
+                if (gameTime > 80.0f)
+                    currentspawninterval = 3.0f;
+                else if (gameTime > 40.0f)
+                    currentspawninterval = 3.5f;
+                else if (gameTime > 20.0f)
+                    currentspawninterval = 4.0f;
+                else if (gameTime > 10.0f)
+                    currentspawninterval = 5.0f;
+                else
+                    currentspawninterval = initialspawninterval;
+                break;
+
+            case 1:
+                if (gameTime > 80.0f)
+                    currentspawninterval = 1.0f;
+                else if (gameTime > 40.0f)
+                    currentspawninterval = 2.0f;
+                else if (gameTime > 20.0f)
+                    currentspawninterval = 3.0f;
+                else if (gameTime > 10.0f)
+                    currentspawninterval = 4.0f;
+                else
+                    currentspawninterval = initialspawninterval;
+                break;
+
+            case 2:
+                if (gameTime > 80.0f)
+                    currentspawninterval = 0.25f;
+                else if (gameTime > 40.0f)
+                    currentspawninterval = 0.5f;
+                else if (gameTime > 20.0f)
+                    currentspawninterval = 1.0f;
+                else if (gameTime > 10.0f)
+                    currentspawninterval = 2.0f;
+                else
+                    currentspawninterval = initialspawninterval;
+                break;
+
+            default:
+                Debug.Log("不正な参照");
+                break;
+        }
     }
 
 }
