@@ -12,7 +12,7 @@ public class Potion_manager : MonoBehaviour
     public int[] player_Lv = new int[4];
     public int PlayerMaxHP = 5;
     public int PlayerHP;
-    public int Level = 1;
+    public int Level = 0;
     public Text scoreText;
     public Image[] heartImage;
     public Sprite fullHeart; 
@@ -76,23 +76,23 @@ public class Potion_manager : MonoBehaviour
 
         if (player_score[pnum] >= 5)
         {
-            player_Lv[pnum] = 2;
+            player_Lv[pnum] = 1;
         }
         else if (player_score[pnum] >= 15)
         {
-            player_Lv[pnum] = 3;
+            player_Lv[pnum] = 2;
         }
         else if (player_score[pnum] >= 35)
         {
-            player_Lv[pnum] = 4;
+            player_Lv[pnum] = 3;
         }
         else if (player_score[pnum] >= 65)
         {
-            player_Lv[pnum] = 5;
+            player_Lv[pnum] = 4;
         }
         else
         {
-            player_Lv[pnum] = 1;
+            player_Lv[pnum] = 0;
         }
         Debug.Log("Player:" + pnum + " Score:"+ player_score[pnum] +" Lv:" + player_Lv[pnum]);
     }
