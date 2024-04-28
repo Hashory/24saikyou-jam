@@ -9,15 +9,17 @@ public class Attacker : MonoBehaviour
     public float cycleTime = 10.0f;
     public float radius = 15.0f;
     public float SpawnHeight = 10;
+    public KeyCode KeyCode = KeyCode.K;
 
     private float keyDownTime = 0f;
     private GameObject spawnKnife = null;
+    private bool mode = false;
 
     // Update is called once per frame
     void Update()
     {
         // K down
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode) && !mode)
         {
             keyDownTime = Time.time;
             if (spawnKnife == null)
@@ -27,35 +29,25 @@ public class Attacker : MonoBehaviour
         }
 
         // K duration
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKey(KeyCode) && !mode)
         {
             UpdateKnifePos(); // Kキーを押している間、位置を更新
         }
 
-        // K up
-        if (Input.GetKeyUp(KeyCode.K))
+        if (Input.GetKeyUp(KeyCode))
         {
-            float duration = Time.time - keyDownTime;
-            Debug.Log("K key down time: " + duration + "s");
-        }
-
-        if (Input.GetKeyUp(KeyCode.K))
-        {
-            float duration = Time.time - keyDownTime;
-            Debug.Log("K key down time: " + duration + "s");
-        }
-
-        // push knife
-        if (Input.GetKeyUp(KeyCode.D)) 
-        {
-            if (spawnKnife != null)  // spawnKnifeがnullでないときだけ以下の処理を実行
+            if (!mode)
             {
-                Debug.Log("push knife");
-
-                var rb = spawnKnife.GetComponent<Rigidbody>();
+                // 最初のキーアップで回転を停止する
+                mode = true;  // modeをtrueに設定して、次のKキー押下で重力を適用する準備
+            }
+            else if (spawnKnife != null)
+            {
+                // 二回目のキーアップで重力を適用
+                Rigidbody rb = spawnKnife.GetComponent<Rigidbody>();
                 rb.useGravity = true;
-
-                spawnKnife = null; // spawnKnifeをリセットする
+                mode = false;  // modeをリセット
+                spawnKnife = null;  // spawnKnifeをリセットする
             }
         }
 
