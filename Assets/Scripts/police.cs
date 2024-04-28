@@ -48,11 +48,9 @@ public class Police : MonoBehaviour
         {
             knife knife = other.gameObject.GetComponent<knife>();
             
-            Debug.Log("ダメージ");
             HP -= 1;
             if (HP <= 0)
             {
-                Debug.Log("破壊");
                 if (scoreManager != null)
                 {   
                     scoreManager.IncreaseScore();  // スコアを増やす
@@ -63,7 +61,6 @@ public class Police : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("potion"))
         {
-            Debug.Log("到達");
             if (scoreManager != null)
             {
                 scoreManager.DecreaseHP();  // 体力を減らす
