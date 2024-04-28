@@ -119,6 +119,8 @@ public class Spowner : MonoBehaviour
 
             default:
                 Debug.Log("不正な参照");
+                currentspawninterval = 0.1f;
+                Police.speed = 10.0f;
                 break;
         }
     }

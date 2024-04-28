@@ -49,9 +49,24 @@ public class Potion_manager : MonoBehaviour
         UpdateHPUI();
         if (PlayerHP <= 0)
         {
+            SceneManager.sceneLoaded += GameSceneLoaded;
             SceneManager.LoadScene("GameOver");
         }
     }
+    private void GameSceneLoaded(Scene next, LoadSceneMode mode)
+    {
+        // シーン切り替え後のスクリプトを取得
+        var gameManager = GameObject.FindWithTag("gameover").GetComponent<GameOver>();
+
+        // データを渡す処理
+        gameManager.lastscore = Score;
+        gameManager.Player1_Level = player_Lv[0];
+        gameManager.Player2_Level = player_Lv[1]; 
+
+        // イベントから削除
+        SceneManager.sceneLoaded -= GameSceneLoaded;
+    }
+
     void UpdateHPUI()
     {
         for (int i = 0; i < heartImage.Length; i++)
