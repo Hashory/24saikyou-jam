@@ -13,22 +13,18 @@ public class Police : MonoBehaviour
     public Potion_manager scoreManager; // PotionManagerへの参照
 
     void Start()
-    {
+    {   
         // potionタグを持つオブジェクトを見つける
         if (potion == null)
         {
             potion = GameObject.FindGameObjectWithTag("potion").transform;
         }
-        startY = transform.position.y; // 初期のY座標を保存
-
-        // potionオブジェクトの方向を向く
-        Vector3 direction = potion.position - transform.position;
-        direction.y = 0; // Y軸の変動を0にする（水平面上のみを考慮）
-        Quaternion newRotation = Quaternion.LookRotation(direction);
-        transform.rotation = newRotation;
+        startY = 5.5f; // 初期のY座標を保存
+        Debug.Log(startY);
 
         // 初期位置のY座標を固定する
         transform.position = new Vector3(transform.position.x, startY, transform.position.z);
+        transform.rotation = Quaternion.Euler(45, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
 
         // potionオブジェクトからPotionManagerコンポーネントを取得
         if (scoreManager == null)
