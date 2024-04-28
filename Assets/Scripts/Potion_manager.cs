@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using System.Runtime.InteropServices.WindowsRuntime;
 
@@ -49,8 +50,7 @@ public class Potion_manager : MonoBehaviour
         Debug.Log("HP:" + PlayerHP);
         if (PlayerHP <= 0)
         {
-            //Time.timeScale = 0;
-            Debug.Log("がめおべら");
+            SceneManager.LoadScene("GameOver");
         }
     }
     void UpdateHPUI()

@@ -947,8 +947,8 @@ MonoBehaviour:
   - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
   cycleTime: 5
   radius: 30
-  SpawnHeight: 20
-  initialVelocity: {x: 0, y: -40, z: 0}
+  SpawnHeight: 30
+  initialVelocity: {x: 0, y: -60, z: 0}
   KeyCode: 107
   PlayerNumber: 0
   PotionManager: {fileID: 7979882442628388659}
@@ -1117,8 +1117,8 @@ MonoBehaviour:
   - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
   cycleTime: 6
   radius: 60
-  SpawnHeight: 20
-  initialVelocity: {x: 0, y: -40, z: 0}
+  SpawnHeight: 30
+  initialVelocity: {x: 0, y: -60, z: 0}
   KeyCode: 100
   PlayerNumber: 1
   PotionManager: {fileID: 7979882442628388659}
