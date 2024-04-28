@@ -8,13 +8,14 @@ public class knife : MonoBehaviour
 {
     public int PlayerNumber { get; private set; }
     public Potion_manager PotionManager;
-    public int bounce = 1;
+    public int bounce;
 
     private void Start()
     {
         if (PotionManager == null)
         {
             PotionManager = FindObjectOfType<Potion_manager>();
+            bounce = 1;
         }
     }
     public void setnumber(int playerNumber)
