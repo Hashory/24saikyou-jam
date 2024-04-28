@@ -20,7 +20,6 @@ public class Police : MonoBehaviour
             potion = GameObject.FindGameObjectWithTag("potion").transform;
         }
         startY = 5.5f; // 初期のY座標を保存
-        Debug.Log(startY);
 
         // 初期位置のY座標を固定する
         transform.position = new Vector3(transform.position.x, startY, transform.position.z);

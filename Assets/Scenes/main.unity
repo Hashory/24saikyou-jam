@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.57770085, g: 0.6152049, b: 0.60846514, a: 1}
+  m_IndirectSpecularColor: {r: 0.20390339, g: 0.3530442, b: 0.47370517, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -366,7 +366,7 @@ Transform:
   m_GameObject: {fileID: 576915958}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 90.3, z: -112}
+  m_LocalPosition: {x: 0, y: 79.6, z: -91.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -644,8 +644,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weapon_1: {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
-  cycleTime: 6
-  radius: 15
+  cycleTime: 5
+  radius: 30
   SpawnHeight: 15
   initialVelocity: {x: 0, y: -40, z: 0}
   KeyCode: 107
@@ -808,8 +808,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weapon_1: {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
-  cycleTime: 4
-  radius: 30
+  cycleTime: 6
+  radius: 60
   SpawnHeight: 15
   initialVelocity: {x: 0, y: -40, z: 0}
   KeyCode: 100
@@ -859,7 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 3873112176503229782, guid: 52606967e5718554a8fa5a27b0a88c72, type: 3}
-  minRadius: 60
+  minRadius: 70
   maxRadius: 80
   minAngle: 0
   maxAngle: 360
