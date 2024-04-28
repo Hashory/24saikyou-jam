@@ -30,11 +30,11 @@ public class Title : MonoBehaviour
             // タイマーをリセット
             timer = 0f;
 
-            // 現在のインデックスに基づいて、次のオブジェクトをアクティブにする
-            ActivateCurrentIndex();
-
             // インデックスを更新
             currentIndex = (currentIndex + 1) % 3;
+
+            // 現在のインデックスに基づいて、次のオブジェクトをアクティブにする
+            ActivateCurrentIndex();
         }
 
         // スペースキーが押されたら、対応するシーンをロード
