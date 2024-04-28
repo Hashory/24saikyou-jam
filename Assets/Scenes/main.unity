@@ -942,10 +942,10 @@ MonoBehaviour:
   Weapon:
   - {fileID: 6513267212137742272, guid: 09d75e4e00ab5ec4b8dd9960da258fc9, type: 3}
   - {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
+  - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
   - {fileID: 7173563740290161648, guid: 6b9f1f0918804ae41b37d9de3fceed2f, type: 3}
-  - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
-  - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
-  cycleTime: 5
+  - {fileID: 7173563740290161648, guid: 6b9f1f0918804ae41b37d9de3fceed2f, type: 3}
+  cycleTime: 4
   radius: 30
   SpawnHeight: 30
   initialVelocity: {x: 0, y: -60, z: 0}
@@ -1112,10 +1112,10 @@ MonoBehaviour:
   Weapon:
   - {fileID: 6513267212137742272, guid: 09d75e4e00ab5ec4b8dd9960da258fc9, type: 3}
   - {fileID: 2842105745503958774, guid: 3820595b96244ef4482973c156dbaa79, type: 3}
+  - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
   - {fileID: 7173563740290161648, guid: 6b9f1f0918804ae41b37d9de3fceed2f, type: 3}
-  - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
-  - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
-  cycleTime: 6
+  - {fileID: 7173563740290161648, guid: 6b9f1f0918804ae41b37d9de3fceed2f, type: 3}
+  cycleTime: 5
   radius: 60
   SpawnHeight: 30
   initialVelocity: {x: 0, y: -60, z: 0}

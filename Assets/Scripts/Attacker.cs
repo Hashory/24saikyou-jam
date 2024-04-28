@@ -72,9 +72,18 @@ public class Attacker : MonoBehaviour
         if (rb != null)
         {
             rb.useGravity = true;
-            rb.velocity = initialVelocity;
+            if (PotionManager.player_Lv[PlayerNumber] == 1)
+            {
+                // player_Lvが1の場合、Z成分だけ-20に設定する
+                Vector3 modifiedVelocity = new Vector3(initialVelocity.x, initialVelocity.y-20,initialVelocity.z);
+                rb.velocity = modifiedVelocity;
+            }
+            else
+            {
+                // それ以外の場合は、初期のvelocityを使用
+                rb.velocity = initialVelocity;
+            }
         }
-
         mode = false;
         spawnKnife = null;
     }
