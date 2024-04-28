@@ -45,6 +45,12 @@ public class Potion_manager : MonoBehaviour
         {
             Level = 5;
         }
+
+        if(Score%20 == 0 && Score != 0)
+        {
+            PlayerHP++;
+            UpdateHPUI();
+        }
     }
 
     public void DecreaseHP()
