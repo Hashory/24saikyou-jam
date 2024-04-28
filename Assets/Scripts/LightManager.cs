@@ -17,10 +17,10 @@ public class LightManager : MonoBehaviour
                 SetLighting(morningColor, 1f);
                 break;
             case 1: // 昼
-                SetLighting(noonColor, 0.75f);
+                SetLighting(noonColor, 0.95f);
                 break;
             case 2: // 夜
-                SetLighting(nightColor, 0.2f);
+                SetLighting(nightColor, 0.75f);
                 break;
         }
     }
