@@ -17,10 +17,15 @@ public class Potion_manager : MonoBehaviour
     public Image[] heartImage;
     public Sprite fullHeart; 
     public Sprite emptyHeart;
+    public AudioClip lifelost;
+    public AudioClip die;
+    AudioSource AudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         PlayerHP = PlayerMaxHP;
+        AudioSource = GetComponent<AudioSource>();
         UpdateHPUI();
         UpdateScoreUI();
     }
@@ -45,10 +50,15 @@ public class Potion_manager : MonoBehaviour
     public void DecreaseHP()
     {
         PlayerHP--;
+        if (PlayerHP > 0)
+        {
+            AudioSource.PlayOneShot(lifelost);
+        }
         Mathf.Max(PlayerHP, 0);
         UpdateHPUI();
         if (PlayerHP <= 0)
         {
+            AudioSource.PlayOneShot(die);
             SceneManager.sceneLoaded += GameSceneLoaded;
             SceneManager.LoadScene("GameOver");
         }
@@ -87,11 +97,7 @@ public class Potion_manager : MonoBehaviour
     {
         player_score[pnum]++;
 
-        if (player_score[pnum] >= 65)
-        {
-            player_Lv[pnum] = 4;
-        }
-        else if (player_score[pnum] >= 35)
+        if (player_score[pnum] >= 35)
         {
             player_Lv[pnum] = 3;
         }
