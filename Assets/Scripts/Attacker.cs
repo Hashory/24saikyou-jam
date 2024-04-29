@@ -12,6 +12,7 @@ public class Attacker : MonoBehaviour
     public float SpawnHeight = 10;
     public Vector3 initialVelocity;
     public KeyCode KeyCode = KeyCode.K;
+    public int disnum; 
     public int PlayerNumber;
     public Potion_manager PotionManager;
 
@@ -28,7 +29,7 @@ public class Attacker : MonoBehaviour
 
     private void HandleKeyPress()
     {
-        if (Input.GetKeyDown(KeyCode) && !mode)
+        if (InputManager.GetKeyDown(disnum) && !mode)
         {
             keyDownTime = Time.time;
             // Weapon配列からプレハブを取得し、そのプレハブのrotationを使用してインスタンス化
@@ -36,12 +37,12 @@ public class Attacker : MonoBehaviour
             spawnKnife = Instantiate(weaponPrefab, new Vector3(radius, SpawnHeight, 0), weaponPrefab.transform.rotation);
             InitializeKnife();
         }
-        if (Input.GetKey(KeyCode) && !mode)
+        if (InputManager.GetKey(disnum) && !mode)
         {
             UpdateKnifePos();
         }
 
-        if (Input.GetKeyUp(KeyCode))
+        if (InputManager.GetKeyUp(disnum))
         {
             ToggleMode();
         }

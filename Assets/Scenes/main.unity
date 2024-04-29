@@ -1267,6 +1267,7 @@ MonoBehaviour:
   SpawnHeight: 40
   initialVelocity: {x: 0, y: -60, z: 0}
   KeyCode: 107
+  disnum: -1
   PlayerNumber: 0
   PotionManager: {fileID: 7979882442628388659}
 --- !u!4 &1088686551
@@ -1531,6 +1532,7 @@ MonoBehaviour:
   SpawnHeight: 40
   initialVelocity: {x: 0, y: -60, z: 0}
   KeyCode: 100
+  disnum: 1
   PlayerNumber: 1
   PotionManager: {fileID: 7979882442628388659}
 --- !u!4 &1230052884
