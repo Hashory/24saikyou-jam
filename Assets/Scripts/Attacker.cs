@@ -78,8 +78,13 @@ public class Attacker : MonoBehaviour
             rb.useGravity = true;
             if (PotionManager.player_Lv[PlayerNumber] == 1)
             {
-                // player_Lvが1の場合、Z成分だけ-20に設定する
                 Vector3 modifiedVelocity = new Vector3(initialVelocity.x, initialVelocity.y*2,initialVelocity.z);
+                rb.velocity = modifiedVelocity;
+            }
+            else if (PotionManager.player_Lv[PlayerNumber] == 4)
+            {
+                SpawnHeight += 30;
+                Vector3 modifiedVelocity = new Vector3(initialVelocity.x, initialVelocity.y*4, initialVelocity.z);
                 rb.velocity = modifiedVelocity;
             }
             else
