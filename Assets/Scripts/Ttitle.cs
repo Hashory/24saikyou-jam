@@ -53,6 +53,8 @@ public class Title : MonoBehaviour
                 AudioManager.Instance.PlaySound(SelectSound);
 
                 selectIndex = currentIndex;
+
+                Thread.Sleep(1000);
                 Rule.SetActive(true);
             } 
             else
