@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour
     public int lastscore;
     public int Player1_Level,Player2_Level;
     private int bonus;
+    public int result;
     
     private void Start()
     {
@@ -48,9 +49,9 @@ public class GameOver : MonoBehaviour
         }
         Debug.Log("Score:" + lastscore);
         Debug.Log("Bonus:" + bonus);
-        lastscore += bonus;
+        result = bonus+lastscore;
 
-        scoreText.text = "Score:" + lastscore.ToString();
+        scoreText.text = "Score:" + lastscore.ToString() +"\nBonus:"+bonus + "\nresult:" +result;
 
     }
     void Update()
