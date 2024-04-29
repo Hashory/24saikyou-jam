@@ -59,7 +59,7 @@ public class Spowner : MonoBehaviour
     void AdjustSpawnInterval(int stage)
     {
         float gameTime = Time.timeSinceLevelLoad; // ゲーム開始からの経過時間
-        switch(stage)
+        switch (stage)
         {
             case 0:
                 Police.speed = 3.0f;
@@ -76,20 +76,17 @@ public class Spowner : MonoBehaviour
                 break;
 
             case 1:
+                Police.speed = 3.5f;
                 if (gameTime > 80.0f)
                     currentspawninterval = 1.0f;
                 else if (gameTime > 40.0f)
-                {
                     currentspawninterval = 2.0f;
-                    Police.speed = 3.7f;
-                }
                 else if (gameTime > 20.0f)
                     currentspawninterval = 3.0f;
                 else if (gameTime > 10.0f)
                     currentspawninterval = 4.0f;
                 else
-                    Police.speed = 3.5f;
-                currentspawninterval = initialspawninterval;
+                    currentspawninterval = initialspawninterval;
                 break;
 
             case 2:
