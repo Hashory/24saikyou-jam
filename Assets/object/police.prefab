@@ -72,9 +72,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potion: {fileID: 0}
-  speed: 4
   HP: 1
   scoreManager: {fileID: 0}
+  particleEffectPrefab: {fileID: 5509261322217658932, guid: 56279c479b9aa55449443820e2e158d9, type: 3}
 --- !u!54 &6186305997919841113
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class Police : MonoBehaviour
     public int HP = 1; // HP
     private float startY; // 初期のY座標
     public Potion_manager scoreManager; // PotionManagerへの参照
+    public GameObject particleEffectPrefab;
 
     void Start()
     {   
@@ -69,4 +70,17 @@ public class Police : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (particleEffectPrefab != null)
+        {
+            GameObject effect = Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
+            Destroy(effect, 1f); // 5秒後にパーティクルエフェクトを破棄
+        }
+        else
+        {
+            Debug.LogError("Particle effect prefab is not assigned!");
+        }
+    }
 }
+
