@@ -17,6 +17,7 @@ public class Title : MonoBehaviour
     public AudioClip SelectSound;
 
     public GameObject Rule;
+    public float PauseTime = 1.5f;
 
     // シーンの名前を格納する配列
     public string[] sceneNames = new string[3];
@@ -47,28 +48,34 @@ public class Title : MonoBehaviour
         // スペースキーが押されたら、対応するシーンをロード
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!selectIndex.HasValue)
-            {
-                // play Audio
-                AudioManager.Instance.PlaySound(SelectSound);
-
-                selectIndex = currentIndex;
-
-                Thread.Sleep(1000);
-                Rule.SetActive(true);
-            } 
-            else
-            {
-                // play Audio
-                AudioManager.Instance.PlaySound(SelectSound);
-
-                SceneManager.sceneLoaded += GameSceneLoaded;
-                SceneManager.LoadScene("main");
-
-                Debug.Log("Select: " + selectIndex.Value);
-            }
+            StartCoroutine(getSpace());
         }
     }
+
+    private IEnumerator getSpace()
+    {
+        if (!selectIndex.HasValue)
+        {
+            // play Audio
+            AudioManager.Instance.PlaySound(SelectSound);
+
+            selectIndex = currentIndex;
+
+            yield return new WaitForSeconds(PauseTime);
+            Rule.SetActive(true);
+        }
+        else
+        {
+            // play Audio
+            AudioManager.Instance.PlaySound(SelectSound);
+
+            SceneManager.sceneLoaded += GameSceneLoaded;
+            SceneManager.LoadScene("main");
+
+            Debug.Log("Select: " + selectIndex.Value);
+        }
+    }
+
     private void GameSceneLoaded(Scene next, LoadSceneMode mode)
     {
         // シーン切り替え後のスクリプトを取得
