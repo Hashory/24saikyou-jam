@@ -78,7 +78,7 @@ public class Spowner : MonoBehaviour
             case 1:
                 Police.speed = 3.5f;
                 if (gameTime > 80.0f)
-                    currentspawninterval = 0.75f;
+                    currentspawninterval = 1.0f;
                 else if (gameTime > 40.0f)
                     currentspawninterval = 2.0f;
                 else if (gameTime > 20.0f)
