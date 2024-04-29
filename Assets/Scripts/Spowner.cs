@@ -84,7 +84,7 @@ public class Spowner : MonoBehaviour
                 else if (gameTime > 20.0f)
                     currentspawninterval = 3.0f;
                 else if (gameTime > 10.0f)
-                    currentspawninterval = 4.0f;
+                    currentspawninterval = 3.5f;
                 else
                     currentspawninterval = initialspawninterval;
                 break;
