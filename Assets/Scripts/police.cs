@@ -75,7 +75,7 @@ public class Police : MonoBehaviour
         if (particleEffectPrefab != null)
         {
             GameObject effect = Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
-            Destroy(effect, 1f); // 5秒後にパーティクルエフェクトを破棄
+            Destroy(effect, 1f);
         }
         else
         {
