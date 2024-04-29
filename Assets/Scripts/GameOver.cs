@@ -8,7 +8,9 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameOver : MonoBehaviour
 {
-    public Text scoreText; 
+    public Text scoreText;
+    public Text bonusText;
+    public Text resultText;
     public int lastscore;
     public int Player1_Level,Player2_Level;
     private int bonus;
@@ -51,7 +53,9 @@ public class GameOver : MonoBehaviour
         Debug.Log("Bonus:" + bonus);
         result = bonus+lastscore;
 
-        scoreText.text = "Score:" + lastscore.ToString() +"\nBonus:"+bonus + "\nresult:" +result;
+        scoreText.text = lastscore.ToString();
+        bonusText.text = bonus.ToString();
+        resultText.text = result.ToString(); 
 
     }
     void Update()
