@@ -20,7 +20,7 @@ public class Potion_manager : MonoBehaviour
     public AudioClip lifelost;
     public AudioClip die;
     AudioSource AudioSource;
-    public int lastresort = 3;
+    public int lastresort = 5;
 
     // Start is called before the first frame update
     void Start()
