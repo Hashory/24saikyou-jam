@@ -382,7 +382,7 @@ MonoBehaviour:
   directionalLight: {fileID: 1608589910}
   morningColor: {r: 1, g: 1, b: 1, a: 0}
   noonColor: {r: 0.83207047, g: 0.98490566, b: 0.7711997, a: 0}
-  nightColor: {r: 0.21759343, g: 0.33363584, b: 0.6301887, a: 0}
+  nightColor: {r: 0.24719821, g: 0.40471938, b: 0.8037735, a: 0}
 --- !u!4 &299579763
 Transform:
   m_ObjectHideFlags: 0
