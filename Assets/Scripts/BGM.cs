@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class BGM : MonoBehaviour
 {
-    public static AudioManager Instance;
+    public AudioClip bgm;
+    public float volume = 1.0f;
+
+    public static BGM Instance;
 
     void Awake()
     {
@@ -19,10 +22,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(AudioClip clip, float volume = 1.0f)
+    void Start()
+    {
+        PlayBGM(bgm, volume);
+    }
+
+    // play BGM loop
+    private void PlayBGM(AudioClip clip, float volume = 1.0f)
     {
         AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = clip;
         audioSource.volume = volume;
-        audioSource.PlayOneShot(clip);
+        audioSource.loop = true;
+        audioSource.Play();
     }
 }
