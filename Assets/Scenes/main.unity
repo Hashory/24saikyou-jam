@@ -2408,7 +2408,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 30
+    maxNumParticles: 50
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 1
@@ -2674,7 +2674,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 120
+      scalar: 1000
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7411,7 +7411,7 @@ MonoBehaviour:
   emptyHeart: {fileID: 21300000, guid: 621a23c0c2680a2479a1353d9f86659a, type: 3}
   lifelost: {fileID: 8300000, guid: fdd7716aa96b30249b178a704ca0f71b, type: 3}
   die: {fileID: 8300000, guid: 230d0a9465893e5429cb311d127cf2e5, type: 3}
-  lastresort: 3
+  lastresort: 5
 --- !u!135 &7979882442628388660
 SphereCollider:
   m_ObjectHideFlags: 0
