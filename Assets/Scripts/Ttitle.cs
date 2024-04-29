@@ -13,6 +13,9 @@ public class Title : MonoBehaviour
     public GameObject Select2;
     public GameObject Select3;
 
+    public AudioClip SwitchSound;
+    public AudioClip SelectSound;
+
     public GameObject Rule;
 
     // シーンの名前を格納する配列
@@ -46,11 +49,17 @@ public class Title : MonoBehaviour
         {
             if (!selectIndex.HasValue)
             {
+                // play Audio
+                AudioManager.Instance.PlaySound(SelectSound);
+
                 selectIndex = currentIndex;
                 Rule.SetActive(true);
             } 
             else
             {
+                // play Audio
+                AudioManager.Instance.PlaySound(SelectSound);
+
                 SceneManager.sceneLoaded += GameSceneLoaded;
                 SceneManager.LoadScene("main");
 
@@ -72,6 +81,15 @@ public class Title : MonoBehaviour
 
     void ActivateCurrentIndex()
     {
+        // selectIndex が選択されている場合は、何もしない
+        if (selectIndex.HasValue)
+        {
+            return;
+        }
+
+        // play Audio
+        AudioManager.Instance.PlaySound(SwitchSound, 0.1f);
+
         // すべてのオブジェクトを一旦非アクティブにする
         Select1.SetActive(false);
         Select2.SetActive(false);
