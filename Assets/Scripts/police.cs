@@ -14,7 +14,7 @@ public class Police : MonoBehaviour
     public GameObject particleEffectPrefab;
 
     void Start()
-    {   
+    {
         // potionタグを持つオブジェクトを見つける
         if (potion == null)
         {
@@ -48,14 +48,23 @@ public class Police : MonoBehaviour
         if (other.gameObject.CompareTag("Attack"))
         {
             knife knife = other.gameObject.GetComponent<knife>();
-            
+
             HP -= 1;
             if (HP <= 0)
             {
                 if (scoreManager != null)
-                {   
+                {
                     scoreManager.IncreaseScore();  // スコアを増やす
                     scoreManager.player_scoreIncrease(knife.PlayerNumber);
+                    if (particleEffectPrefab != null)
+                    {
+                        GameObject effect = Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
+                        Destroy(effect, 1f);
+                    }
+                    else
+                    {
+                        Debug.LogError("Particle effect prefab is not assigned!");
+                    }
                 }
                 Destroy(gameObject);
             }
@@ -70,17 +79,4 @@ public class Police : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        if (particleEffectPrefab != null)
-        {
-            GameObject effect = Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
-            Destroy(effect, 1f);
-        }
-        else
-        {
-            Debug.LogError("Particle effect prefab is not assigned!");
-        }
-    }
 }
-

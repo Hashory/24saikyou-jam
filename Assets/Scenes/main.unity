@@ -1136,7 +1136,7 @@ MonoBehaviour:
   - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
   - {fileID: 7173563740290161648, guid: 6b9f1f0918804ae41b37d9de3fceed2f, type: 3}
   - {fileID: 3184447855443453274, guid: 16e142eef490a2c4abd66606e878ab98, type: 3}
-  cycleTime: 4
+  cycleTime: 3.5
   radius: 30
   SpawnHeight: 40
   initialVelocity: {x: 0, y: -60, z: 0}
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   - {fileID: 5913163916912208459, guid: c92cd48900aa0714cbc8bfe811cfe6e1, type: 3}
   - {fileID: 7173563740290161648, guid: 6b9f1f0918804ae41b37d9de3fceed2f, type: 3}
   - {fileID: 3184447855443453274, guid: 16e142eef490a2c4abd66606e878ab98, type: 3}
-  cycleTime: 4
+  cycleTime: 3.5
   radius: 60
   SpawnHeight: 40
   initialVelocity: {x: 0, y: -60, z: 0}
@@ -6391,7 +6391,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: -1
+    m_Resolution: 1
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
