@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Attacker : MonoBehaviour
 {
@@ -107,7 +103,7 @@ public class Attacker : MonoBehaviour
     private void UpdateKnifePos()
     {
         float duration = Time.time - keyDownTime;
-        float angle = Mathf.PI * 2 * (duration / cycleTime)*(Mathf.Pow(-1,PlayerNumber));
+        float angle = Mathf.PI * 2 * (duration / cycleTime) * Mathf.Pow(-1,PlayerNumber);
         float x = radius * Mathf.Cos(angle);
         float y = radius * Mathf.Sin(angle);
         spawnKnife.transform.position = new Vector3(x, SpawnHeight, y);
