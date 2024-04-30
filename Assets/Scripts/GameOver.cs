@@ -60,7 +60,7 @@ public class GameOver : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || InputManager.GetKeyDown(-1) || InputManager.GetKeyDown(1))
         {
             Debug.Log("To TItle");
             // タイトルシーンに変更する

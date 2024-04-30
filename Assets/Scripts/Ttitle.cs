@@ -46,7 +46,7 @@ public class Title : MonoBehaviour
         }
 
         // スペースキーが押されたら、対応するシーンをロード
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.Space) || InputManager.GetKeyDown(-1) || InputManager.GetKeyDown(1))
         {
             StartCoroutine(getSpace());
         }
