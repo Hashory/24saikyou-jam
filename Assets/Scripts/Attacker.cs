@@ -57,7 +57,7 @@ public class Attacker : MonoBehaviour
 
     private void ToggleMode()
     {
-        if (!mode)
+        if (!mode && spawnKnife != null)
         {
             mode = true;
         }
@@ -102,6 +102,11 @@ public class Attacker : MonoBehaviour
 
     private void UpdateKnifePos()
     {
+        if (spawnKnife == null)
+        {
+            return;
+        }
+
         float duration = Time.time - keyDownTime;
         float angle = Mathf.PI * 2 * (duration / cycleTime) * Mathf.Pow(-1,PlayerNumber);
         float x = radius * Mathf.Cos(angle);
