@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Mirror with filter
-        uses: usherlabs/monorepo-package-mirror-action@v1.0.0
+        uses: usher-labs/monorepo-package-mirror-action@main
         with:
           target_repo_url: git@github.com:Hashory/24saikyou-jam.git
           ssh_private_key: ${{ secrets.MIRROR_SSH_KEY }}
