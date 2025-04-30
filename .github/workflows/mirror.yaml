@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Mirror with filter
-        uses: pixta-dev/monorepo-package-mirror-action@v1
+        uses: usher-labs/monorepo-package-mirror-action@main
         with:
           mirrorignore: .mirrorignore
           target_repo: git@github.com:Hashory/24saikyou-jam.git
