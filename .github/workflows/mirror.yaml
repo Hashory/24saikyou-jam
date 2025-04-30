@@ -1,0 +1,21 @@
+name: Mirror & Filter to Public
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Mirror with filter
+        uses: pixta-dev/monorepo-package-mirror-action@v1
+        with:
+          mirrorignore: .mirrorignore
+          target_repo: git@github.com:Hashory/24saikyou-jam.git
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.MIRROR_SSH_KEY }}
